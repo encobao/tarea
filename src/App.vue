@@ -39,13 +39,13 @@
     <v-main>
       <v-sheet
         color="white"
-        max-width="720"
+        max-width="600"
         class="mx-auto my-5"
       >
         <v-tabs-items v-model="tabs">
 
           <v-tab-item class="px-8 pt-6">
-            <v-container>
+            <!-- <v-container>
               <v-row
                 v-for="question in questionList"
                 :key="question.id"
@@ -61,16 +61,18 @@
                 <v-col
                   cols="6"
                   class="pr-0 py-0"
-                >
-                  <my-form
+                > -->
+                  <math-question
+                    v-for="question in questionList"
+                    :key="question.id"
                     :question="question"
                     @enviar-click="onEnviarClick"
                   >
-                  </my-form>
-                </v-col>
+                  </math-question>
+                <!-- </v-col>
 
               </v-row>
-            </v-container>
+            </v-container> -->
           </v-tab-item>
 
           <v-tab-item>
@@ -118,15 +120,15 @@
 </template>
 
 <script>
-import MyForm from './components/MyForm.vue';
 import axios from 'axios'
 import ReadingExpansionPanel from './components/ReadingExpansionPanel.vue';
+import MathQuestion from './components/MathQuestion.vue';
 
 export default {
   name: 'App',
 
   components: {
-    MyForm,
+    MathQuestion,
     ReadingExpansionPanel,
   },
 
