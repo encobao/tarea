@@ -1,62 +1,80 @@
 [
     {
-        "id": 0,
-        "formula": "8+4",
-        "result": 12,
-        "completed": false
-    },
-    {
         "id": 1,
-        "formula": "12-2",
-        "result": 10,
-        "completed": false
+        "type": "Suma",
+        "list":[
+            {
+                "id": 0,
+                "formula": "8+4",
+                "result": 12,
+                "completed": false
+            },
+            {
+                "id": 1,
+                "formula": "9+1",
+                "result": 10,
+                "completed": false
+            },
+            {
+                "id": 2,
+                "formula": "9+1",
+                "result": 10,
+                "completed": false
+            }
+        ]
     },
     {
         "id": 2,
-        "formula": "51+8",
-        "result": 59,
-        "completed": false
+        "type": "Resta",
+        "list":[
+            {
+                "id": 0,
+                "formula": "8-4",
+                "result": 4,
+                "completed": false
+            },
+            {
+                "id": 1,
+                "formula": "9-1",
+                "result": 8,
+                "completed": false
+            }
+        ]
     },
     {
         "id": 3,
-        "formula": "78-5",
-        "result": 73,
-        "completed": false
+        "type": "Multiplicación",
+        "list":[
+            {
+                "id": 0,
+                "formula": "4*2",
+                "result": 8,
+                "completed": false
+            },
+            {
+                "id": 1,
+                "formula": "5*3",
+                "result": 15,
+                "completed": false
+            }
+        ]
     },
     {
         "id": 4,
-        "formula": "9+4",
-        "result": 13,
-        "completed": false
-    },
-    {
-        "id": 5,
-        "formula": "12-3",
-        "result": 9,
-        "completed": false
-    },
-    {
-        "id": 6,
-        "formula": "45+4",
-        "result": 49,
-        "completed": false
-    },
-    {
-        "id": 7,
-        "formula": "61+34",
-        "result": 95,
-        "completed": false
-    },
-    {
-        "id": 8,
-        "formula": "23+23",
-        "result": 46,
-        "completed": false
-    },
-    {
-        "id": 9,
-        "formula": "82+10",
-        "result": 92,
-        "completed": false
+        "type": "División",
+        "list":[
+            {
+                "id": 0,
+                "formula": "8/2",
+                "result": 4,
+                "completed": false
+            },
+            {
+                "id": 1,
+                "formula": "10/2",
+                "result": 5,
+                "completed": false
+            }
+        ]
     }
 ]

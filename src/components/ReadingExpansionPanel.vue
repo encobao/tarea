@@ -65,7 +65,7 @@
     },
 
     data: () => ({
-        imgReadingPath: process.env.VUE_APP_IMG_READING_PATH,
+        imgReadingPath: process.env.VUE_APP_IMG_READING_FOLDER,
     }),
   }
 </script>

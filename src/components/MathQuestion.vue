@@ -29,7 +29,7 @@
             <v-btn
               color="primary"
               class="mt-2 py-5"
-              @click="$emit('enviar-click', result, question.id)"
+              @click="$emit('enviar-click', result, question.id, operationId)"
               elevation="5"
               small
             >
@@ -56,11 +56,6 @@
             </v-icon>
           </div>
         </v-form>
-        <!-- <math-question
-          :question="question"
-          @enviar-click="onEnviarClick"
-        >
-        </math-question> -->
       </v-col>
 
     </v-row>
@@ -74,6 +69,7 @@
     name: 'MathQuestion',
     props: {
       question: Object,
+      operationId: Number,
     },
 
     data: () => ({

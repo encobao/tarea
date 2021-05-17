@@ -8,14 +8,6 @@
       extension-height="80"
       absolute
     >
-      <!-- <v-spacer></v-spacer>
-      
-      <v-toolbar-title class="text-h3">
-        TAREA
-      </v-toolbar-title>
-
-      <v-spacer></v-spacer> -->
-
       <template v-slot:extension>
         <v-tabs
           v-model="tabs"
@@ -44,35 +36,12 @@
       >
         <v-tabs-items v-model="tabs">
 
-          <v-tab-item class="px-8 pt-6">
-            <!-- <v-container>
-              <v-row
-                v-for="question in questionList"
-                :key="question.id"
-                class="text-h4"
-              >
-                <v-col 
-                  cols="6"
-                  class="text-right px-0 pt-2"
-                >
-                  {{ question.formula }} = 
-                </v-col>
-
-                <v-col
-                  cols="6"
-                  class="pr-0 py-0"
-                > -->
-                  <math-question
-                    v-for="question in questionList"
-                    :key="question.id"
-                    :question="question"
-                    @enviar-click="onEnviarClick"
-                  >
-                  </math-question>
-                <!-- </v-col>
-
-              </v-row>
-            </v-container> -->
+          <v-tab-item>
+            <math-expansion-panel 
+              :operationList="mathOperationList"
+              @enviar-click="onEnviarClick"
+            >
+            </math-expansion-panel>
           </v-tab-item>
 
           <v-tab-item>
@@ -122,21 +91,22 @@
 <script>
 import axios from 'axios'
 import ReadingExpansionPanel from './components/ReadingExpansionPanel.vue';
-import MathQuestion from './components/MathQuestion.vue';
+import MathExpansionPanel from './components/MathExpansionPanel.vue';
+//import MathQuestion from './components/MathQuestion.vue';
 
 export default {
   name: 'App',
 
   components: {
-    MathQuestion,
     ReadingExpansionPanel,
+    MathExpansionPanel,
   },
 
   data: () => ({
     tabs: null,
     dialog: false,
     apiErrored: false,
-    //imgReadingPath: process.env.VUE_APP_IMG_READING_PATH,
+    
     tabNames: [
       {
         id: 0,
@@ -149,17 +119,32 @@ export default {
         icon: 'mdi-format-letter-case'
       },
     ],
-    questionList: [
+    
+    mathOperationList: [
       {
         id: 0,
-        formula: '2+5',
-        result: 7,
-        completed: false,
+        type: "Suma",
+        list:[
+          {
+              id: 0,
+              formula: "8+4",
+              result: 12,
+              completed: false
+          },
+          {
+              id: 1,
+              formula: "9+1",
+              result: 10,
+              completed: false
+          }
+        ]
       },
     ],
+
     emojiList: [
       { name: "wa_emoji1.jpg" },
     ],
+    
     readingList: [
       {
         id: 0,
@@ -169,16 +154,48 @@ export default {
         ],
       },
     ],
-  }),
-  methods: {
-    onEnviarClick(result, id) {
-      let index = this.questionList.findIndex( question => question.id == id )
 
-      if ( this.questionList[index].result == result ) {
-        this.questionList[index].completed = true
+  }),
+  
+  methods: {
+
+    processAnswer (result, formulaId, operationId) {
+      let opIndex = this.mathOperationList.findIndex( op => op.id == operationId )
+
+      let formulaIndex = this.mathOperationList[opIndex].list.findIndex( question => question.id == formulaId )
+
+      if ( this.mathOperationList[opIndex].list[formulaIndex].result == result ) {
+        this.mathOperationList[opIndex].list[formulaIndex].completed = true
+        this.succAnswer()
       } else {
-        this.dialog = true
+        this.wrongAnswer ()
       }
+    },
+
+    wrongAnswer () {
+      this.audioWrongAnswer.play()
+      this.dialog = true
+    },
+
+    succAnswer () {
+      const { totalCompleted, total } = this.countCompleted()
+      totalCompleted == total ? this.audioMathCompleted.play() : this.audioSuccAnswer.play()
+    },
+
+    countCompleted () {
+        let total = 0
+        let totalCompleted  = 0
+
+        this.mathOperationList.forEach(element => {
+          total += element.list.length
+          totalCompleted += element.list.reduce((subtotal, v) => (v.completed === true ? subtotal + 1 : subtotal), 0)
+
+        });
+        return { totalCompleted: totalCompleted, total: total }
+    },
+
+    onEnviarClick(result, formulaId, operationId) {
+      this.processAnswer(result, formulaId, operationId)
     },
 
     async getApiObject(apiLocation) {
@@ -192,20 +209,37 @@ export default {
 
     ramdomImage() {
       let index = Math.floor(Math.random() * this.emojiList.length)
-      return process.env.VUE_APP_IMG_EMOJI_PATH + this.emojiList[index].name
-    }
+      return process.env.VUE_APP_IMG_EMOJI_FOLDER + this.emojiList[index].name
+    },
+  
   },
 
   mounted () {
-    this.getApiObject(process.env.VUE_APP_API_PATH + 'emoList.json')
+    // this.getApiObject(process.env.VUE_APP_API_PATH + 'emoList.json')
+    //   .then(data => this.emojiList = data)
+
+    this.getApiObject(process.env.VUE_APP_EMOJI_FILE)
       .then(data => this.emojiList = data)
 
-    this.getApiObject(process.env.VUE_APP_API_PATH + 'questionList.json')
-      .then(data => this.questionList = data)
+    // this.getApiObject(process.env.VUE_APP_API_PATH + 'questionList.json')
+    //   .then(data => this.mathOperationList = data)
 
-    this.getApiObject(process.env.VUE_APP_API_PATH + 'readingList.json')
+    this.getApiObject(process.env.VUE_APP_QUESTION_LIST_FILE)
+      .then(data => this.mathOperationList = data)
+
+    // this.getApiObject(process.env.VUE_APP_API_PATH + 'readingList.json')
+    //   .then(data => this.readingList = data)
+
+    this.getApiObject(process.env.VUE_APP_READING_LIST_FILE)
       .then(data => this.readingList = data)
-  },  
+  }, 
+
+  created () {
+    this.audioSuccAnswer = new Audio(process.env.VUE_APP_SUCC_ANSWER_SOUND_FILE);
+    this.audioMathCompleted = new Audio(process.env.VUE_APP_MATH_COMPLETED_SOUND_FILE);
+    this.audioWrongAnswer = new Audio(process.env.VUE_APP_WRONG_ANSWER_SOUND_FILE);
+  },
+
 };
 </script>
 
