@@ -39,8 +39,8 @@
             {{ readingList[0].title }}
         </p>
         <p 
-            v-for="para in readingList[0].paras"
-            :key="para.id"
+            v-for="(para, i) in readingList[0].paras"
+            :key="i"
             class="text-h5 text-justify"
         >
             <v-img

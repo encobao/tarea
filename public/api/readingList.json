@@ -4,17 +4,14 @@
       "paras": 
         [
             { 
-                "id": 0, 
                 "text": "Tito no es un mono cualquiera. A Tito no le gusta trepar por los árboles y odia comer plátanos. Él prefiere pasear por el bosque, oler las flores y recoger las nueces que se caen de los árboles.",
                 "img": "reading1.jpg"
             },
             { 
-                "id": 1, 
                 "text" : "Siempre va cargado con una cesta hecha con ramitas y cuando tiene más de treinta nueces, elabora una deliciosa tarta de frutos secos y mermelada de mango." ,
                 "img": ""
             },
             { 
-                "id": 2, 
                 "text" : "Como Tito es generoso, comparte el postre con sus amigos la ardilla y el puercoespín.",
                 "img": ""
             }
@@ -25,22 +22,18 @@
         "paras": 
           [
               { 
-                  "id": 0, 
                   "text": "Pilarín es una niña inquieta y juguetona. Tiene muchos cachivaches en su habitación, pero lo que más le gusta, es una muñeca de trapo que le hizo su mamá. Desde hace algún tiempo, son inseparables.",
                   "img": "reading2.jpg"
               },
               { 
-                  "id": 1, 
                   "text" : "Posiblemente no sea la muñeca más bonita del mundo porque sus ojos son dos simples botones azules y su boca está cosida con hilo rojo. El pelo está hecho con un ovillo de lana gruesa que llevaba años olvidado en el costurero." ,
                   "img": ""
               },
               { 
-                  "id": 2, 
                   "text" : "Tampoco es la más moderna ya que su vestido de lunares procede de un viejo retal. No llora, ni anda, ni dice cosas como otras muñecas, pero a la niña le da igual; la lleva al colegio metida en su mochila, le prepara comiditas imaginarias en su cocina de plástico y por las noches, duermen juntas.",
                   "img": ""
               },
               { 
-                  "id": 3, 
                   "text" : "Pilarín nunca se olvida de dar un besito y desear felices sueños a su querida muñeca. Para ella es la más linda de todas." ,
                   "img": ""
               }
