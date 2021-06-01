@@ -1,6 +1,5 @@
 [
     {
-      "id": 0,
       "title": "El mono Tito",
       "paras": 
         [
@@ -22,7 +21,6 @@
         ]
     },
     {
-        "id": 1,
         "title": "Pilarín y sus muñecas",
         "paras": 
           [

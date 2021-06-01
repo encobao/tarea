@@ -4,8 +4,8 @@
         accordion
     >
         <v-expansion-panel
-            v-for="reading in readingList"
-            :key="reading.id"
+            v-for="(reading, i) in readingList"
+            :key="i"
         >
             <v-expansion-panel-header class="text-h5 secondary--text font-weight-bold">{{ reading.title }}</v-expansion-panel-header>
             <v-expansion-panel-content>
