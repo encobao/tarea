@@ -35,6 +35,10 @@
         class="mx-auto my-5"
       >
         <v-tabs-items v-model="tabs">
+          
+          <v-tab-item>
+            <mult-expansion-panel :multChartImgs='multTableImgs'></mult-expansion-panel>
+          </v-tab-item>
 
           <v-tab-item>
             <math-expansion-panel 
@@ -92,7 +96,7 @@
 import axios from 'axios'
 import ReadingExpansionPanel from './components/ReadingExpansionPanel.vue';
 import MathExpansionPanel from './components/MathExpansionPanel.vue';
-//import MathQuestion from './components/MathQuestion.vue';
+import MultExpansionPanel from './components/MultExpansionPanel.vue';
 
 export default {
   name: 'App',
@@ -100,6 +104,7 @@ export default {
   components: {
     ReadingExpansionPanel,
     MathExpansionPanel,
+    MultExpansionPanel,
   },
 
   data: () => ({
@@ -107,14 +112,30 @@ export default {
     dialog: false,
     apiErrored: false,
     
+    multTableImgs: [
+      { 
+        name: "Tabla del 1",
+        img: "chart1.jpg"
+      },
+      { 
+        name: "Tabla del 2",
+        img: "chart2.jpg"
+      },
+    ],
+    
     tabNames: [
       {
         id: 0,
+        name: 'Tablas',
+        icon: 'mdi-close-thick'
+      },
+      {
+        id: 1,
         name: 'Matematica',
         icon: 'mdi-counter'
       },
       {
-        id: 1,
+        id: 2,
         name: 'Lectura',
         icon: 'mdi-format-letter-case'
       },
@@ -215,23 +236,18 @@ export default {
   },
 
   mounted () {
-    // this.getApiObject(process.env.VUE_APP_API_PATH + 'emoList.json')
-    //   .then(data => this.emojiList = data)
 
     this.getApiObject(process.env.VUE_APP_EMOJI_FILE)
       .then(data => this.emojiList = data)
 
-    // this.getApiObject(process.env.VUE_APP_API_PATH + 'questionList.json')
-    //   .then(data => this.mathOperationList = data)
-
     this.getApiObject(process.env.VUE_APP_QUESTION_LIST_FILE)
       .then(data => this.mathOperationList = data)
 
-    // this.getApiObject(process.env.VUE_APP_API_PATH + 'readingList.json')
-    //   .then(data => this.readingList = data)
-
     this.getApiObject(process.env.VUE_APP_READING_LIST_FILE)
       .then(data => this.readingList = data)
+
+    this.getApiObject(process.env.VUE_APP_MULT_TABLE_FILE)
+      .then(data => this.multTableImgs = data)
   }, 
 
   created () {

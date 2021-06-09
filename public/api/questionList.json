@@ -5,20 +5,32 @@
         "list":[
             {
                 "id": 0,
+                "formula": "4+5",
+                "result": 9,
+                "completed": false
+            },
+            {
+                "id": 1,
                 "formula": "8+4",
                 "result": 12,
                 "completed": false
             },
             {
-                "id": 1,
-                "formula": "9+1",
-                "result": 10,
+                "id": 2,
+                "formula": "45+2",
+                "result": 47,
                 "completed": false
             },
             {
-                "id": 2,
-                "formula": "9+1",
-                "result": 10,
+                "id": 3,
+                "formula": "3+4",
+                "result": 7,
+                "completed": false
+            },
+            {
+                "id": 4,
+                "formula": "78+2",
+                "result": 80,
                 "completed": false
             }
         ]
@@ -29,14 +41,32 @@
         "list":[
             {
                 "id": 0,
-                "formula": "8-4",
-                "result": 4,
+                "formula": "5-5",
+                "result": 0,
                 "completed": false
             },
             {
                 "id": 1,
-                "formula": "9-1",
-                "result": 8,
+                "formula": "15-1",
+                "result": 14,
+                "completed": false
+            },
+            {
+                "id": 2,
+                "formula": "79-1",
+                "result": 78,
+                "completed": false
+            },
+            {
+                "id": 3,
+                "formula": "20-10",
+                "result": 10,
+                "completed": false
+            },
+            {
+                "id": 4,
+                "formula": "15-5",
+                "result": 10,
                 "completed": false
             }
         ]
@@ -47,14 +77,32 @@
         "list":[
             {
                 "id": 0,
-                "formula": "4*2",
-                "result": 8,
+                "formula": "2*3",
+                "result": 6,
                 "completed": false
             },
             {
                 "id": 1,
-                "formula": "5*3",
-                "result": 15,
+                "formula": "2*4",
+                "result": 8,
+                "completed": false
+            },
+            {
+                "id": 2,
+                "formula": "3*3",
+                "result": 9,
+                "completed": false
+            },
+            {
+                "id": 3,
+                "formula": "2*6",
+                "result": 12,
+                "completed": false
+            },
+            {
+                "id": 4,
+                "formula": "2*7",
+                "result": 14,
                 "completed": false
             }
         ]
@@ -73,6 +121,24 @@
                 "id": 1,
                 "formula": "10/2",
                 "result": 5,
+                "completed": false
+            },
+            {
+                "id": 2,
+                "formula": "10/10",
+                "result": 1,
+                "completed": false
+            },
+            {
+                "id": 3,
+                "formula": "6/2",
+                "result": 3,
+                "completed": false
+            },
+            {
+                "id": 4,
+                "formula": "9/3",
+                "result": 3,
                 "completed": false
             }
         ]
