@@ -1,0 +1,42 @@
+[
+    { 
+      "name": "Tabla del 1",
+      "img": "chart1.jpg"
+    },
+    { 
+      "name": "Tabla del 2",
+      "img": "chart2.jpg"
+    },
+    { 
+      "name": "Tabla del 3",
+      "img": "chart3.jpg"
+    },
+    { 
+      "name": "Tabla del 4",
+      "img": "chart4.jpg"
+    },
+    { 
+      "name": "Tabla del 5",
+      "img": "chart5.jpg"
+    },
+    { 
+      "name": "Tabla del 6",
+      "img": "chart6.jpg"
+    },
+    { 
+      "name": "Tabla del 7",
+      "img": "chart7.jpg"
+    },
+    { 
+      "name": "Tabla del 8",
+      "img": "chart8.jpg"
+    },
+    { 
+      "name": "Tabla del 9",
+      "img": "chart9.jpg"
+    },
+    { 
+      "name": "Tabla del 10",
+      "img": "chart10.jpg"
+    }
+  ]
